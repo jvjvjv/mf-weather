@@ -16,6 +16,7 @@ import {
   Grain,
   AcUnit,
   Thunderstorm,
+  Water,
 } from '@mui/icons-material';
 
 interface WeatherDay {
@@ -176,7 +177,7 @@ const WeatherWidget: React.FC = () => {
         
         <Grid container spacing={2}>
           {weather.days.map((day, index) => (
-            <Grid item xs={12} sm={6} md={2.4} key={day.date}>
+            <Grid item xs={12} sm={6} md={12 / 5} key={day.date}>
               <Card 
                 elevation={2}
                 sx={{
@@ -211,9 +212,12 @@ const WeatherWidget: React.FC = () => {
                   </Box>
                   
                   {day.precipitation > 0 && (
-                    <Typography variant="caption" display="block" align="center" sx={{ mt: 1 }}>
-                      💧 {day.precipitation}mm
-                    </Typography>
+                    <Box display="flex" justifyContent="center" alignItems="center" sx={{ mt: 1 }}>
+                      <Water fontSize="small" sx={{ mr: 0.5, color: 'primary.main' }} />
+                      <Typography variant="caption">
+                        {day.precipitation}mm
+                      </Typography>
+                    </Box>
                   )}
                 </CardContent>
               </Card>

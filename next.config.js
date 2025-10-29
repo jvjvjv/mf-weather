@@ -34,9 +34,6 @@ const nextConfig = {
             requiredVersion: false,
           },
         },
-        extraOptions: {
-          automaticAsyncBoundary: true,
-        },
       })
     );
 
