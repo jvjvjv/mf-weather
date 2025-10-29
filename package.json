@@ -1,16 +1,52 @@
 {
-  "name": "mf-weather",
+  "name": "@jvjvjv/weather",
   "version": "1.0.0",
+  "description": "A demo weather widget component exposed via Module Federation for micro-frontend architectures",
+  "main": "./dist/remoteEntry.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/remoteEntry.js",
+      "require": "./dist/remoteEntry.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
     "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "build:mf": "./scripts/build-package.sh",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve": "npm run build && npm start"
   },
-  "keywords": [],
+  "keywords": [
+    "module-federation",
+    "weather-widget",
+    "react",
+    "nextjs",
+    "micro-frontend",
+    "mfe",
+    "microfrontend"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvjvjv/mf-weather.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvjvjv/mf-weather/issues"
+  },
+  "homepage": "https://github.com/jvjvjv/mf-weather#readme",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
